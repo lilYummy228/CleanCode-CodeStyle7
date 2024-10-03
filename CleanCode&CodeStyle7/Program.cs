@@ -19,11 +19,20 @@ public class Player
 
 public class Movement
 {
-    public float DirectionHorizontal { get; private set; }
+    private float _directionHorizontal;
+    private float _directionVertical;
+    private float _speed;
 
-    public float DirectionVertical { get; private set; }
+    public Movement(float directionHorizontal, float directionVertical, float speed)
+    {
+        _directionHorizontal = directionHorizontal;
+        _directionVertical = directionVertical;
+        _speed = speed;
+    }
 
-    public float Speed { get; private set; }
+    public float DirectionHorizontal => _directionHorizontal;
+    public float DirectionVertical => _directionVertical;
+    public float Speed => _speed;
 
     public void Move()
     {
@@ -33,9 +42,17 @@ public class Movement
 
 public class Weapon
 {
-    public float Cooldown { get; private set; }
+    private float _cooldown;
+    private int _damage;
 
-    public int Damage { get; private set; }
+    public Weapon(float cooldown, int damage)
+    {
+        _cooldown = cooldown;
+        _damage = damage;
+    }
+
+    public float Cooldown => _cooldown;
+    public int Damage => _damage;
 
     public bool IsReloading()
     {
